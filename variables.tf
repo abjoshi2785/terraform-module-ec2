@@ -1,4 +1,4 @@
-variable "name" {
+ variable "name" {
   description = "EC2 instance name"
   type        = string
 }
@@ -44,6 +44,48 @@ variable "user_data" {
   description = "Optional EC2 user data"
   type        = string
   default     = null
+}
+
+variable "ebs_optimized" {
+  description = "Whether the instance is EBS optimized"
+  type        = bool
+  default     = true
+}
+
+variable "monitoring" {
+  description = "Whether detailed monitoring is enabled"
+  type        = bool
+  default     = true
+}
+
+variable "root_volume_size" {
+  description = "Root volume size in GiB"
+  type        = number
+  default     = 20
+}
+
+variable "root_volume_type" {
+  description = "Root volume type"
+  type        = string
+  default     = "gp3"
+}
+
+variable "root_volume_encrypted" {
+  description = "Whether the root volume is encrypted"
+  type        = bool
+  default     = true
+}
+
+variable "kms_key_id" {
+  description = "Optional KMS key ID for EBS encryption"
+  type        = string
+  default     = null
+}
+
+variable "delete_on_termination" {
+  description = "Whether the root volume should be deleted on termination"
+  type        = bool
+  default     = true
 }
 
 variable "tags" {
