@@ -1,4 +1,4 @@
- variable "name" {
+variable "name" {
   description = "EC2 instance name"
   type        = string
 }
