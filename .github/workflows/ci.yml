@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  module-ci:
+    permissions:
+      contents: write
+    uses: abjoshi2785/terraform-module-workflows/.github/workflows/terraform-module-ci.yml@main
+    with:
+      terraform_version: "1.9.8"
+      tofu_version: "1.10.2"
+      working_dir: "."
+      checkov_skip_check: ""
+    secrets: inherit
